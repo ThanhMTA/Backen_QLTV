@@ -2,7 +2,7 @@ import express from "express";
 import User from "../models/User.js";
 import Role from "../models/role.js";
 import BookTransaction from "../models/BookTransaction.js";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import config from '../config/auth.js'
 
@@ -14,7 +14,7 @@ export const signin = (req, res) => {
                 return res.status(404).send({ message: "User Not found." });
             }
 
-            var passwordIsValid = bcrypt.compareSync(
+            var passwordIsValid = bcryptjs.compareSync(
                 req.body.password,
                 user.password
             );

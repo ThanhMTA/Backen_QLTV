@@ -1,6 +1,6 @@
 import Dao from './Dao.js';
 import User from '../models/User.js';
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 
 // Tính tuổi từ ngày sinh
 function tinhTuoi(dob) {
@@ -21,8 +21,8 @@ class UserDao extends Dao {
     // Create a new user
     // Create a new user
     async addUser(userData) {
-        const salt = await bcrypt.genSalt(10);
-        const hashedPass = await bcrypt.hash(userData.password, salt);
+        const salt = await bcryptjs.genSalt(10);
+        const hashedPass = await bcryptjs.hash(userData.password, salt);
         try {
             const newUser = await new User({
                 userType: userData.userType,

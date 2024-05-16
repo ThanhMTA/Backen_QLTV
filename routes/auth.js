@@ -1,7 +1,7 @@
 import express from "express";
 import User from "../models/User.js";
 import BookTransaction from "../models/BookTransaction.js";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { signin } from "../Controller/auth.js";
 import authJwt from "../middleware/authJwt.js";
@@ -36,7 +36,7 @@ router.post("/signin", async (req, res) => {
       return res.status(404).json("User not found");
     }
 
-    const validPass = await bcrypt.compare(req.body.password, user.password);
+    const validPass = await bcryptjs.compare(req.body.password, user.password);
     if (!validPass) {
       return res.status(400).json("Wrong Password");
     }
