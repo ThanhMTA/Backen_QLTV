@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "backend ltth",
   "main": "server.js",
-  "author": "chu tuan kiet",
+  "author": "trinh thi thanh",
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
